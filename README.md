@@ -4,6 +4,10 @@
 * activate-musl-toolchain.env - place file in musl-cross-make toolchain root, source it for productivity, etc.
 * gdbserver-7.12-static-build.sh - shell script to build a static gdb-7.12 gdbserver using a cross-compile toolchain
 
+### First - if you just want to grab a statically linked gdbserver for a specific MIPS(EL) or ARM platform ...
+
+Check out https://github.com/mzpqnxow/arm-mips-tools as it contains a substantial collection of gdbserver binaries that have been well tested on many different architectures of varying ABIs, byte-orders and CPU architectures. Why build when you can borrow or steal, right? They aren't backdoored :)
+
 ### First - If you just want to build a native gdb-7.12 gdbserver statically
 
 You don't need any of this. These scripts just simplify doing it with different toolchains. If you're doing it natively it can be summarized pretty quickly
