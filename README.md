@@ -1,8 +1,8 @@
 ## Build Scripts and Toolchain Helpers
 
-* activate-openwrt-toolchain.env - place file in prebuilt OpenWRT toolchain root, source it for productivity, etc.
-* activate-musl-toolchain.env - place file in musl-cross-make toolchain root, source it for productivity, etc.
-* gdbserver-7.12-static-build.sh - shell script to build a static gdb-7.12 gdbserver using a cross-compile toolchain
+* ```activate-openwrt-toolchain.env``` - place file in prebuilt OpenWRT toolchain root, source it for productivity, etc.
+* ```activate-musl-toolchain.env``` - place file in musl-cross-make toolchain root, source it for productivity, etc.
+* ```gdbserver-7.12-static-build.sh``` - shell script to build a static gdb-7.12 gdbserver using a cross-compile toolchain
 
 ### First - if you just want to grab a statically linked gdbserver for a specific MIPS(EL) or ARM platform ...
 
@@ -36,7 +36,7 @@ $ make -j gdbserver GDBSERVER_LIBS="/path/to/libstdc++.a /path/to/libgcc_eh.a"
 
 You will have a statically compiled GDB 7.12 gdbserver for your native OS. Read on for the cross-compile stuff, which is a little more involved but still pretty simple
 
-### Use an env script with a pre-built OpenWrt Toolchain
+### Use ```activate-openwrt-toolchain.env``` with a pre-built OpenWrt Toolchain
 
 Browse to https://downloads.openwrt.org/snapshots/trunk/ to find your toolchain
 
@@ -57,7 +57,7 @@ $ cp ~/gdb-7.12-crossbuilder/activate-openwrt-toolchain.env /openwrt-toolchains/
 $ source /openwrt-toolchains/$TOOLCHAIN/activate
 ```
 
-### Use an env script with an installed toolchain built by musl-cross-make
+### Use ```activate-musl-toolchain.env``` with an installed toolchain built by musl-cross-make
 
 Using musl-cross-make is a nice experience- I recommend you try it. If you do, all you need to do is edit config.mak, use make -j and make install. That's it. You're done. The activate-musl-toolchain file is for you to place in the root of the installed toolchain to use as a convenience to "activate" the toolchain in your environment.
 
