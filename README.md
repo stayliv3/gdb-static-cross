@@ -10,7 +10,18 @@ Check out https://github.com/mzpqnxow/arm-mips-tools as it contains a substantia
 
 ### Second - If you just want to build a *native* gdb-7.12 gdbserver statically on your host machine
 
-You don't need any of this. These scripts just simplify doing it with different toolchains. If you're doing it natively it can be summarized pretty quickly
+You don't need any of this. These scripts just simplify doing it with different toolchains. If you're doing it natively it can be summarized pretty quickly. 
+
+#### Find static libraries you will need to link gdbserver with
+
+You will need to make sure you have libstdc++.a and libgcc_eh.a on your system. If you don't know what you're doing, you can just use find. Try using the following:
+
+```
+$ find /l* /u* -name libgcc_eh.a
+$ find /l* /u* -name libstdc++.a
+```
+
+#### Perform the build
 
 ```
 $ wget https://ftp.gnu.org/gnu/gdb/gdb-7.12.tar.xz
@@ -21,7 +32,9 @@ $ ./configure --prefix=/opt/gdbserver-7.12-static CXXFLAGS='fPIC -static'
 $ make -j gdbserver GDBSERVER_LIBS="/path/to/libstdc++.a /path/to/libgcc_eh.a"
 ```
 
-You will have a statically compiled GDB 7.12 gdbserver for your native OS. Read on for the cross-compile stuff.
+#### FIN
+
+You will have a statically compiled GDB 7.12 gdbserver for your native OS. Read on for the cross-compile stuff, which is a little more involved but still pretty simple
 
 ### Use an env script with a pre-built OpenWrt Toolchain
 
