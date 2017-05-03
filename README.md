@@ -8,7 +8,7 @@
 
 Check out https://github.com/mzpqnxow/arm-mips-tools as it contains a substantial collection of gdbserver binaries that have been well tested on many different architectures of varying ABIs, byte-orders and CPU architectures. Why build when you can borrow or steal, right? They aren't backdoored :)
 
-### First - If you just want to build a native gdb-7.12 gdbserver statically
+### Second - If you just want to build a *native* gdb-7.12 gdbserver statically on your host machine
 
 You don't need any of this. These scripts just simplify doing it with different toolchains. If you're doing it natively it can be summarized pretty quickly
 
