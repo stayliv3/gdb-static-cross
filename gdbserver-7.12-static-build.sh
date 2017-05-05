@@ -6,8 +6,10 @@
 #
 # -- Perform a static build of gdbserver (gdb-7.12)
 #
-# This was designed particular for toolchains built by
-# the excellent musl-cross-make tool:
+# This was designed particularly to demonstrate the way
+# that the activate scripts can be used. You can use
+# them for  for toolchains built by the excellent musl-cross-make
+# tool:
 #
 #   https://github.com/richfelker/musl-cross-make
 # 
@@ -23,6 +25,10 @@
 # parameter. Which hopefully you can figure out how to do
 # if you're planning on debugging native code on another
 # architecture :>
+
+#
+#
+#
 
 CURDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
