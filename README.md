@@ -1,5 +1,7 @@
 ## Build Scripts and Toolchain Helpers
 
+"For when you don't quite need crosstool-ng or buildroot- you just need to build a few binaries, and you have a root to work from"
+
 * ```activate-openwrt-toolchain.env``` - place file in prebuilt OpenWRT toolchain root, source it for productivity, etc.
 * ```activate-musl-toolchain.env``` - place file in musl-cross-make toolchain root, source it for productivity, etc.
 * ```gdbserver-7.12-static-build.sh``` - shell script to build a static gdb-7.12 gdbserver using a cross-compile toolchain
