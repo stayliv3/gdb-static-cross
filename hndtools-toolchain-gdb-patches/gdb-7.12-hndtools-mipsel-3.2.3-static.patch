@@ -1,0 +1,284 @@
+diff -Naur gdb-7.12/gdb/gdbserver/configure.srv gdb-7.12-hndtools-mipsel-3.2.3/gdb/gdbserver/configure.srv
+--- gdb-7.12/gdb/gdbserver/configure.srv	2016-10-07 13:09:21.000000000 -0400
++++ gdb-7.12-hndtools-mipsel-3.2.3/gdb/gdbserver/configure.srv	2017-05-05 14:43:45.875981664 -0400
+@@ -64,7 +64,7 @@
+ 			srv_xmlfiles="${srv_xmlfiles} arm-core.xml arm-vfpv3.xml"
+ 			srv_xmlfiles="${srv_xmlfiles} arm-with-neon.xml"
+ 			srv_linux_regsets=yes
+-			srv_linux_thread_db=yes
++			
+ 			ipa_obj="linux-aarch64-ipa.o aarch64-ipa.o"
+ 			;;
+   arm*-*-linux*)	srv_regobj="reg-arm.o arm-with-iwmmxt.o"
+@@ -86,7 +86,7 @@
+ 			srv_xmlfiles="${srv_xmlfiles} arm-vfpv3.xml"
+ 			srv_linux_usrregs=yes
+ 			srv_linux_regsets=yes
+-			srv_linux_thread_db=yes
++			
+ 			;;
+   arm*-*-mingw32ce*)	srv_regobj=reg-arm.o
+ 			srv_tgtobj="win32-low.o win32-arm-low.o"
+@@ -99,17 +99,17 @@
+   bfin-*-*linux*)	srv_regobj=reg-bfin.o
+ 			srv_tgtobj="$srv_linux_obj linux-bfin-low.o"
+ 			srv_linux_usrregs=yes
+-			srv_linux_thread_db=yes
++			
+ 			;;
+   crisv32-*-linux*)	srv_regobj=reg-crisv32.o
+ 			srv_tgtobj="$srv_linux_obj linux-crisv32-low.o"
+ 			srv_linux_regsets=yes
+-			srv_linux_thread_db=yes
++			
+ 			;;
+   cris-*-linux*)	srv_regobj=reg-cris.o
+ 			srv_tgtobj="$srv_linux_obj linux-cris-low.o"
+ 			srv_linux_usrregs=yes
+-			srv_linux_thread_db=yes
++			
+ 			;;
+   i[34567]86-*-cygwin*)	srv_regobj="$srv_i386_regobj"
+ 			srv_tgtobj="x86-low.o x86-dregs.o win32-low.o win32-i386-low.o"
+@@ -127,7 +127,7 @@
+ 			srv_tgtobj="${srv_tgtobj} x86-linux-dregs.o"
+ 			srv_linux_usrregs=yes
+ 			srv_linux_regsets=yes
+-			srv_linux_thread_db=yes
++			
+ 			srv_linux_btrace=yes
+ 			ipa_obj="${ipa_i386_linux_regobj} linux-i386-ipa.o"
+ 			;;
+@@ -165,7 +165,7 @@
+   m32r*-*-linux*)	srv_regobj=reg-m32r.o
+ 			srv_tgtobj="$srv_linux_obj linux-m32r-low.o"
+ 			srv_linux_usrregs=yes
+- 			srv_linux_thread_db=yes
++ 			
+ 			;;
+   m68*-*-linux*)	if test "$gdb_cv_m68k_is_coldfire" = yes; then
+                           srv_regobj=reg-cf.o
+@@ -175,7 +175,7 @@
+ 			srv_tgtobj="$srv_linux_obj linux-m68k-low.o"
+ 			srv_linux_usrregs=yes
+ 			srv_linux_regsets=yes
+-			srv_linux_thread_db=yes
++			
+ 			;;
+   m68*-*-uclinux*)	if test "$gdb_cv_m68k_is_coldfire" = yes; then
+                           srv_regobj=reg-cf.o
+@@ -185,7 +185,7 @@
+ 			srv_tgtobj="$srv_linux_obj linux-m68k-low.o"
+ 			srv_linux_usrregs=yes
+ 			srv_linux_regsets=yes
+-			srv_linux_thread_db=yes
++			
+ 			;;
+   mips*-*-linux*)	srv_regobj="mips-linux.o"
+ 			srv_regobj="${srv_regobj} mips-dsp-linux.o"
+@@ -207,7 +207,7 @@
+ 			srv_xmlfiles="${srv_xmlfiles} mips64-dsp.xml"
+ 			srv_linux_regsets=yes
+ 			srv_linux_usrregs=yes
+-			srv_linux_thread_db=yes
++			
+ 			;;
+   nios2*-*-linux*)	srv_regobj="nios2-linux.o"
+ 			srv_tgtobj="$srv_linux_obj linux-nios2-low.o"
+@@ -215,7 +215,7 @@
+ 			srv_xmlfiles="${srv_xmlfiles} nios2-cpu.xml"
+ 			srv_linux_regsets=yes
+ 			srv_linux_usrregs=yes
+-			srv_linux_thread_db=yes
++			
+ 			;;
+   powerpc*-*-linux*)	srv_regobj="powerpc-32l.o"
+ 			srv_regobj="${srv_regobj} powerpc-altivec32l.o"
+@@ -259,7 +259,7 @@
+ 			srv_xmlfiles="${srv_xmlfiles} rs6000/power64-linux.xml"
+ 			srv_linux_usrregs=yes
+ 			srv_linux_regsets=yes
+-			srv_linux_thread_db=yes
++			
+ 			ipa_obj="${ipa_ppc_linux_regobj} linux-ppc-ipa.o"
+ 			;;
+   powerpc-*-lynxos*)	srv_regobj="powerpc-32.o"
+@@ -309,7 +309,7 @@
+ 			srv_xmlfiles="${srv_xmlfiles} s390-vx.xml"
+ 			srv_linux_usrregs=yes
+ 			srv_linux_regsets=yes
+-			srv_linux_thread_db=yes
++			
+ 			ipa_obj="linux-s390-ipa.o"
+ 			ipa_obj="${ipa_obj} s390-linux32-ipa.o"
+ 			ipa_obj="${ipa_obj} s390-linux32v1-ipa.o"
+@@ -331,12 +331,12 @@
+ 			srv_tgtobj="$srv_linux_obj linux-sh-low.o"
+ 			srv_linux_usrregs=yes
+ 			srv_linux_regsets=yes
+-			srv_linux_thread_db=yes
++			
+ 			;;
+   sparc*-*-linux*)	srv_regobj=reg-sparc64.o
+ 			srv_tgtobj="$srv_linux_obj linux-sparc-low.o"
+ 			srv_linux_regsets=yes
+-			srv_linux_thread_db=yes
++			
+ 			;;
+   spu*-*-*)		srv_regobj=reg-spu.o
+ 			srv_tgtobj="spu-low.o"
+@@ -353,7 +353,7 @@
+ 			srv_tgtobj="$srv_linux_obj linux-tic6x-low.o"
+ 			srv_linux_regsets=yes
+ 			srv_linux_usrregs=yes
+-			srv_linux_thread_db=yes
++			
+ 			;;
+   x86_64-*-linux*)	srv_regobj="$srv_amd64_linux_regobj $srv_i386_linux_regobj"
+ 			srv_tgtobj="$srv_linux_obj linux-x86-low.o x86-low.o x86-dregs.o i387-fp.o"
+@@ -363,7 +363,7 @@
+ 			srv_xmlfiles="$srv_i386_linux_xmlfiles $srv_amd64_linux_xmlfiles"
+ 			srv_linux_usrregs=yes # This is for i386 progs.
+ 			srv_linux_regsets=yes
+-			srv_linux_thread_db=yes
++			
+ 			srv_linux_btrace=yes
+ 			if test "$gdb_cv_x86_is_x32" = yes ; then
+ 			    ipa_obj="${ipa_x32_linux_regobj}"
+@@ -385,13 +385,13 @@
+   xtensa*-*-linux*)	srv_regobj=reg-xtensa.o
+ 			srv_tgtobj="$srv_linux_obj linux-xtensa-low.o"
+ 			srv_linux_regsets=yes
+-			srv_linux_thread_db=yes
++			
+ 			;;
+   tilegx-*-linux*)	srv_regobj=reg-tilegx.o
+ 			srv_regobj="${srv_regobj} reg-tilegx32.o"
+ 			srv_tgtobj="$srv_linux_obj linux-tile-low.o"
+ 			srv_linux_regsets=yes
+-			srv_linux_thread_db=yes
++			
+ 			;;
+   *)			echo "Error: target not supported by gdbserver."
+ 			exit 1
+diff -Naur gdb-7.12/gdb/gdbserver/linux-low.h gdb-7.12-hndtools-mipsel-3.2.3/gdb/gdbserver/linux-low.h
+--- gdb-7.12/gdb/gdbserver/linux-low.h	2016-08-01 11:50:20.000000000 -0400
++++ gdb-7.12-hndtools-mipsel-3.2.3/gdb/gdbserver/linux-low.h	2017-05-05 14:43:45.839981662 -0400
+@@ -16,6 +16,16 @@
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
+ 
++#ifndef PTRACE_PEEKUSER
++#define PTRACE_PEEKUSER 3
++#define PT_READ_U PTRACE_PEEKUSER
++#endif
++
++#ifndef PTRACE_POKEUSER
++#define PTRACE_POKEUSER 6
++#define PT_WRITE_U PTRACE_POKEUSER
++#endif
++
+ #include "nat/linux-nat.h"
+ #include "nat/gdb_thread_db.h"
+ #include <signal.h>
+diff -Naur gdb-7.12/gdb/gdbserver/linux-mips-low.c gdb-7.12-hndtools-mipsel-3.2.3/gdb/gdbserver/linux-mips-low.c
+--- gdb-7.12/gdb/gdbserver/linux-mips-low.c	2016-10-07 13:04:17.000000000 -0400
++++ gdb-7.12-hndtools-mipsel-3.2.3/gdb/gdbserver/linux-mips-low.c	2017-05-05 14:43:45.859981663 -0400
+@@ -16,6 +16,17 @@
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
+ 
++#ifndef PTRACE_PEEKUSER
++#define PTRACE_PEEKUSER 3
++#define PT_READ_U PTRACE_PEEKUSER
++#endif
++
++#ifndef PTRACE_POKEUSER
++#define PTRACE_POKEUSER 6
++#define PT_WRITE_U PTRACE_POKEUSER
++#endif
++
++
+ #include "server.h"
+ #include "linux-low.h"
+ 
+diff -Naur gdb-7.12/gdb/nat/gdb_ptrace.h gdb-7.12-hndtools-mipsel-3.2.3/gdb/nat/gdb_ptrace.h
+--- gdb-7.12/gdb/nat/gdb_ptrace.h	2016-08-01 11:50:20.000000000 -0400
++++ gdb-7.12-hndtools-mipsel-3.2.3/gdb/nat/gdb_ptrace.h	2017-05-05 14:43:45.847981663 -0400
+@@ -33,6 +33,63 @@
+ #ifdef HAVE_PTRACE_H
+ # include <ptrace.h>
+ #elif defined(HAVE_SYS_PTRACE_H)
++#ifdef PTRACE_TRACEME
++#undef PTRACE_TRACEME
++#endif
++#ifdef PTRACE_PEEKTEXT
++#undef PTRACE_PEEKTEXT
++#endif
++#ifdef PTRACE_PEEKDATA
++#undef PTRACE_PEEKDATA
++#endif
++#ifdef PTRACE_PEEKUSER
++#undef PTRACE_PEEKUSER
++#endif
++#ifdef PTRACE_POKETEXT
++#undef PTRACE_POKETEXT
++#endif
++#ifdef PTRACE_POKEDATA
++#undef PTRACE_POKEDATA
++#endif
++#ifdef PTRACE_POKEUSER
++#undef PTRACE_POKEUSER
++#endif
++#ifdef PTRACE_CONT
++#undef PTRACE_CONT
++#endif
++#ifdef PTRACE_KILL
++#undef PTRACE_KILL
++#endif
++#ifdef PTRACE_SINGLESTEP
++#undef PTRACE_SINGLESTEP
++#endif
++#ifdef PTRACE_GETREGS
++#undef PTRACE_GETREGS
++#endif
++#ifdef PTRACE_SETREGS
++#undef PTRACE_SETREGS
++#endif
++#ifdef PTRACE_GETFPREGS
++#undef PTRACE_GETFPREGS
++#endif
++#ifdef PTRACE_SETFPREGS
++#undef PTRACE_SETFPREGS
++#endif
++#ifdef PTRACE_ATTACH
++#undef PTRACE_ATTACH
++#endif
++#ifdef PTRACE_DETACH
++#undef PTRACE_DETACH
++#endif
++#ifdef PTRACE_GETFPXREGS
++#undef PTRACE_GETFPXREGS
++#endif
++#ifdef PTRACE_SETFPXREGS
++#undef PTRACE_SETFPXREGS
++#endif
++#ifdef PTRACE_SYSCALL
++#undef PTRACE_SYSCALL
++#endif
+ # include <sys/ptrace.h>
+ #endif
+ 
+diff -Naur gdb-7.12/gdb/nat/linux-ptrace.h gdb-7.12-hndtools-mipsel-3.2.3/gdb/nat/linux-ptrace.h
+--- gdb-7.12/gdb/nat/linux-ptrace.h	2016-08-01 11:50:20.000000000 -0400
++++ gdb-7.12-hndtools-mipsel-3.2.3/gdb/nat/linux-ptrace.h	2017-05-05 14:43:45.867981664 -0400
+@@ -55,7 +55,9 @@
+    values.  */
+ #ifndef PTRACE_EVENT_FORK
+ 
++#ifndef PTRACE_SETOPTIONS
+ #define PTRACE_SETOPTIONS	0x4200
++#endif
+ #define PTRACE_GETEVENTMSG	0x4201
+ 
+ /* options set using PTRACE_SETOPTIONS */

@@ -1,0 +1,177 @@
+diff -Naur gdb-7.12/gdb/gdbserver/configure.srv gdb-7.12-hndtools-mipsel-linux-uclibc-4.2.3/gdb/gdbserver/configure.srv
+--- gdb-7.12/gdb/gdbserver/configure.srv	2017-05-05 15:14:56.176064074 -0400
++++ gdb-7.12-hndtools-mipsel-linux-uclibc-4.2.3/gdb/gdbserver/configure.srv	2017-05-05 15:15:29.528065544 -0400
+@@ -64,7 +64,7 @@
+ 			srv_xmlfiles="${srv_xmlfiles} arm-core.xml arm-vfpv3.xml"
+ 			srv_xmlfiles="${srv_xmlfiles} arm-with-neon.xml"
+ 			srv_linux_regsets=yes
+-			srv_linux_thread_db=yes
++			
+ 			ipa_obj="linux-aarch64-ipa.o aarch64-ipa.o"
+ 			;;
+   arm*-*-linux*)	srv_regobj="reg-arm.o arm-with-iwmmxt.o"
+@@ -86,7 +86,7 @@
+ 			srv_xmlfiles="${srv_xmlfiles} arm-vfpv3.xml"
+ 			srv_linux_usrregs=yes
+ 			srv_linux_regsets=yes
+-			srv_linux_thread_db=yes
++			
+ 			;;
+   arm*-*-mingw32ce*)	srv_regobj=reg-arm.o
+ 			srv_tgtobj="win32-low.o win32-arm-low.o"
+@@ -99,17 +99,17 @@
+   bfin-*-*linux*)	srv_regobj=reg-bfin.o
+ 			srv_tgtobj="$srv_linux_obj linux-bfin-low.o"
+ 			srv_linux_usrregs=yes
+-			srv_linux_thread_db=yes
++			
+ 			;;
+   crisv32-*-linux*)	srv_regobj=reg-crisv32.o
+ 			srv_tgtobj="$srv_linux_obj linux-crisv32-low.o"
+ 			srv_linux_regsets=yes
+-			srv_linux_thread_db=yes
++			
+ 			;;
+   cris-*-linux*)	srv_regobj=reg-cris.o
+ 			srv_tgtobj="$srv_linux_obj linux-cris-low.o"
+ 			srv_linux_usrregs=yes
+-			srv_linux_thread_db=yes
++			
+ 			;;
+   i[34567]86-*-cygwin*)	srv_regobj="$srv_i386_regobj"
+ 			srv_tgtobj="x86-low.o x86-dregs.o win32-low.o win32-i386-low.o"
+@@ -127,7 +127,7 @@
+ 			srv_tgtobj="${srv_tgtobj} x86-linux-dregs.o"
+ 			srv_linux_usrregs=yes
+ 			srv_linux_regsets=yes
+-			srv_linux_thread_db=yes
++			
+ 			srv_linux_btrace=yes
+ 			ipa_obj="${ipa_i386_linux_regobj} linux-i386-ipa.o"
+ 			;;
+@@ -165,7 +165,7 @@
+   m32r*-*-linux*)	srv_regobj=reg-m32r.o
+ 			srv_tgtobj="$srv_linux_obj linux-m32r-low.o"
+ 			srv_linux_usrregs=yes
+- 			srv_linux_thread_db=yes
++ 			
+ 			;;
+   m68*-*-linux*)	if test "$gdb_cv_m68k_is_coldfire" = yes; then
+                           srv_regobj=reg-cf.o
+@@ -175,7 +175,7 @@
+ 			srv_tgtobj="$srv_linux_obj linux-m68k-low.o"
+ 			srv_linux_usrregs=yes
+ 			srv_linux_regsets=yes
+-			srv_linux_thread_db=yes
++			
+ 			;;
+   m68*-*-uclinux*)	if test "$gdb_cv_m68k_is_coldfire" = yes; then
+                           srv_regobj=reg-cf.o
+@@ -185,7 +185,7 @@
+ 			srv_tgtobj="$srv_linux_obj linux-m68k-low.o"
+ 			srv_linux_usrregs=yes
+ 			srv_linux_regsets=yes
+-			srv_linux_thread_db=yes
++			
+ 			;;
+   mips*-*-linux*)	srv_regobj="mips-linux.o"
+ 			srv_regobj="${srv_regobj} mips-dsp-linux.o"
+@@ -207,7 +207,7 @@
+ 			srv_xmlfiles="${srv_xmlfiles} mips64-dsp.xml"
+ 			srv_linux_regsets=yes
+ 			srv_linux_usrregs=yes
+-			srv_linux_thread_db=yes
++			
+ 			;;
+   nios2*-*-linux*)	srv_regobj="nios2-linux.o"
+ 			srv_tgtobj="$srv_linux_obj linux-nios2-low.o"
+@@ -215,7 +215,7 @@
+ 			srv_xmlfiles="${srv_xmlfiles} nios2-cpu.xml"
+ 			srv_linux_regsets=yes
+ 			srv_linux_usrregs=yes
+-			srv_linux_thread_db=yes
++			
+ 			;;
+   powerpc*-*-linux*)	srv_regobj="powerpc-32l.o"
+ 			srv_regobj="${srv_regobj} powerpc-altivec32l.o"
+@@ -259,7 +259,7 @@
+ 			srv_xmlfiles="${srv_xmlfiles} rs6000/power64-linux.xml"
+ 			srv_linux_usrregs=yes
+ 			srv_linux_regsets=yes
+-			srv_linux_thread_db=yes
++			
+ 			ipa_obj="${ipa_ppc_linux_regobj} linux-ppc-ipa.o"
+ 			;;
+   powerpc-*-lynxos*)	srv_regobj="powerpc-32.o"
+@@ -309,7 +309,7 @@
+ 			srv_xmlfiles="${srv_xmlfiles} s390-vx.xml"
+ 			srv_linux_usrregs=yes
+ 			srv_linux_regsets=yes
+-			srv_linux_thread_db=yes
++			
+ 			ipa_obj="linux-s390-ipa.o"
+ 			ipa_obj="${ipa_obj} s390-linux32-ipa.o"
+ 			ipa_obj="${ipa_obj} s390-linux32v1-ipa.o"
+@@ -331,12 +331,12 @@
+ 			srv_tgtobj="$srv_linux_obj linux-sh-low.o"
+ 			srv_linux_usrregs=yes
+ 			srv_linux_regsets=yes
+-			srv_linux_thread_db=yes
++			
+ 			;;
+   sparc*-*-linux*)	srv_regobj=reg-sparc64.o
+ 			srv_tgtobj="$srv_linux_obj linux-sparc-low.o"
+ 			srv_linux_regsets=yes
+-			srv_linux_thread_db=yes
++			
+ 			;;
+   spu*-*-*)		srv_regobj=reg-spu.o
+ 			srv_tgtobj="spu-low.o"
+@@ -353,7 +353,7 @@
+ 			srv_tgtobj="$srv_linux_obj linux-tic6x-low.o"
+ 			srv_linux_regsets=yes
+ 			srv_linux_usrregs=yes
+-			srv_linux_thread_db=yes
++			
+ 			;;
+   x86_64-*-linux*)	srv_regobj="$srv_amd64_linux_regobj $srv_i386_linux_regobj"
+ 			srv_tgtobj="$srv_linux_obj linux-x86-low.o x86-low.o x86-dregs.o i387-fp.o"
+@@ -363,7 +363,7 @@
+ 			srv_xmlfiles="$srv_i386_linux_xmlfiles $srv_amd64_linux_xmlfiles"
+ 			srv_linux_usrregs=yes # This is for i386 progs.
+ 			srv_linux_regsets=yes
+-			srv_linux_thread_db=yes
++			
+ 			srv_linux_btrace=yes
+ 			if test "$gdb_cv_x86_is_x32" = yes ; then
+ 			    ipa_obj="${ipa_x32_linux_regobj}"
+@@ -385,13 +385,13 @@
+   xtensa*-*-linux*)	srv_regobj=reg-xtensa.o
+ 			srv_tgtobj="$srv_linux_obj linux-xtensa-low.o"
+ 			srv_linux_regsets=yes
+-			srv_linux_thread_db=yes
++			
+ 			;;
+   tilegx-*-linux*)	srv_regobj=reg-tilegx.o
+ 			srv_regobj="${srv_regobj} reg-tilegx32.o"
+ 			srv_tgtobj="$srv_linux_obj linux-tile-low.o"
+ 			srv_linux_regsets=yes
+-			srv_linux_thread_db=yes
++			
+ 			;;
+   *)			echo "Error: target not supported by gdbserver."
+ 			exit 1
+diff -Naur gdb-7.12/gdb/gnulib/import/mbrtowc.c gdb-7.12-hndtools-mipsel-linux-uclibc-4.2.3/gdb/gnulib/import/mbrtowc.c
+--- gdb-7.12/gdb/gnulib/import/mbrtowc.c	2017-05-05 15:14:56.076064070 -0400
++++ gdb-7.12-hndtools-mipsel-linux-uclibc-4.2.3/gdb/gnulib/import/mbrtowc.c	2017-05-05 15:15:20.884065163 -0400
+@@ -26,6 +26,10 @@
+ # include <errno.h>
+ # include <stdlib.h>
+ 
++# ifndef MB_CUR_MAX
++# define MB_CUR_MAX (_stdlib_mb_cur_max ())
++# endif
++
+ # include "localcharset.h"
+ # include "streq.h"
+ # include "verify.h"
