@@ -1,4 +1,4 @@
-## Build scripts and toolchain helpers and how to build a statically linked gdbserver
+## Build scripts and toolchain helpers and how to build a cross-compile and statically link gdbserver
 
 First things first, I apologize for the poor documentation but I did not intend to write any. Hopefully it's better than nothing
 
