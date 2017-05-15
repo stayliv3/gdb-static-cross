@@ -81,7 +81,8 @@ See the end of each .env file. You will see variables exported. Those variables 
 
 #### Sample environment variables after activating an OpenWrt toolchain
 
-```DL_STATIC=/opt/openwrt/armel-gnu-eabi5-sysv/lib/libdl.a
+```
+DL_STATIC=/opt/openwrt/armel-gnu-eabi5-sysv/lib/libdl.a
 C_STATIC=/opt/openwrt/armel-gnu-eabi5-sysv/lib/libc.a
 STDCXX_STATIC=/opt/openwrt/armel-gnu-eabi5-sysv/lib/libstdc++.a
 UTIL_STATIC=/opt/openwrt/armel-gnu-eabi5-sysv/lib/libutil.a
@@ -91,11 +92,12 @@ STAGING_DIR=/opt/openwrt/armel-gnu-eabi5-sysv
 TOOLCHAIN_ROOT=/opt/openwrt/armel-gnu-eabi5-sysv
 TOOLCHAIN_BIN=/opt/openwrt/armel-gnu-eabi5-sysv/bin
 TOOLCHAIN_TARGET=arm-openwrt-linux-muslgnueabi
-SYSTEM_ROOT=/opt/openwrt/armel-gnu-eabi5-sysv```
+SYSTEM_ROOT=/opt/openwrt/armel-gnu-eabi5-sysv
+```
 
 #### Sample alias
 
-```alias cross_configure='./configure --host=arm-openwrt-linux-muslgnueabi --prefix=/opt/openwrt/armel-gnu-eabi5-sysv'```
+`alias cross_configure='./configure --host=arm-openwrt-linux-muslgnueabi --prefix=/opt/openwrt/armel-gnu-eabi5-sysv'`
 
 ### Doing a plain old build of gdbserver for the same host and target (i.e. no special toolchain)
 
