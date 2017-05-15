@@ -1,4 +1,4 @@
-## Build Scripts and Toolchain Helpers, also known as "how do I build a statically linked gdbserver"
+## Build scripts and toolchain helpers and how to build a statically linked gdbserver
 
 First things first, I apologize for the poor documentation but I did not intend to write any. Hopefully it's better than nothing
 
@@ -17,6 +17,8 @@ This repository is for when you don't need something as heavy as crosstool-ng or
 * `activate-openwrt-toolchain.env` - place file in prebuilt OpenWRT toolchain root, source it for productivity, etc.
 * `activate-musl-toolchain.env` - place file in musl-cross-make toolchain root, source it for productivity, etc.
 * `gdbserver-7.12-static-build.sh` - shell script to build a static gdb-7.12 gdbserver using a cross-compile toolchain. Should be executed from gdb-7.12-/gdb/gdbserver/
+
+*Note that you can use the `--disable-build-with-cxx` option when configuring gdb-7.12/gdb/gdbserver in some cases to make your life easier*
 
 ### ATTENTION!
 
