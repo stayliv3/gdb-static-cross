@@ -1,0 +1,13 @@
+diff -Naur gdb-7.12/gdb/gdbserver/linux-ppc-low.c gdb-7.12-ppc-patched/gdb/gdbserver/linux-ppc-low.c
+--- gdb-7.12/gdb/gdbserver/linux-ppc-low.c	2016-08-01 11:50:20.000000000 -0400
++++ gdb-7.12-ppc-patched/gdb/gdbserver/linux-ppc-low.c	2017-05-15 13:40:22.073884258 -0400
+@@ -21,7 +21,9 @@
+ #include "linux-low.h"
+ 
+ #include <elf.h>
++#define __ASSEMBLY__
+ #include <asm/ptrace.h>
++#undef __ASSEMBLY__
+ 
+ #include "nat/ppc-linux.h"
+ #include "linux-ppc-tdesc.h"
