@@ -129,7 +129,9 @@ $ ./configure --prefix=/opt/gdbserver-7.12-static CXXFLAGS='-fPIC -static'
 $ make -j gdbserver GDBSERVER_LIBS="$LIBGCC $LIBCXX"
 ```
 
-You should now have a statically compiled GDB 7.12 gdbserver for your native OS. Read on for the cross-compile stuff, which is a little more involved but still pretty simple. You really should use uClibc or musl for your libc, not glibc, because getgrgid() and getpwuid() both load shared libraries. This could cause a problem if you intend to run the gdbserver executable on another machine with a different version of glibc- which more or less defeats the purpose of static linking.
+You should now have a statically compiled GDB 7.12 gdbserver for your native OS. Read on for the cross-compile stuff, which is a little more involved but still pretty simple.
+
+*NOTE: You really should use uClibc or musl for your libc, not glibc, because getgrgid() and getpwuid() both load shared libraries. This could cause a problem if you intend to run the gdbserver executable on another machine with a different version of glibc- which more or less defeats the purpose of static linking. You will also run into issues with any application that uses libnss when linking against glibc*
 
 ## License
 
